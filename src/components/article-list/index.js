@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Article from './article'
-import accordionDecorator from '../decorators/accordion'
+import Article from '../article'
+import accordionDecorator from '../../decorators/accordion'
 
 class ArticleList extends Component {
   render() {
@@ -12,7 +12,11 @@ class ArticleList extends Component {
     return articles.map((article) => (
       <li key={article.id}>
         <Article
-          article={article}
+          id={article.id}
+          title={article.title}
+          text={article.text}
+          date={article.date}
+          comments={article.comments}
           isOpen={openItemId === article.id}
           toggleOpen={toggleOpenItem}
         />
