@@ -14,8 +14,10 @@ class CommentList extends Component {
     const { isOpen, toggleOpen } = this.props
     const text = isOpen ? 'hide comments' : 'show comments'
     return (
-      <div>
-        <button onClick={toggleOpen}>{text}</button>
+      <div data-hook="comment-list">
+        <button onClick={toggleOpen} data-hook="comment-list-toggle-button">
+          {text}
+        </button>
         {this.getBody()}
       </div>
     )
@@ -29,7 +31,7 @@ class CommentList extends Component {
     const body = comments.length ? (
       <ul>
         {comments.map((comment) => (
-          <li key={comment.id}>
+          <li key={comment.id} data-hook="comment-item">
             <Comment comment={comment} />
           </li>
         ))}
