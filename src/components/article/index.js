@@ -1,9 +1,22 @@
 import React, { PureComponent } from 'react'
 import CSSTransition from 'react-addons-css-transition-group'
 import CommentList from '../comment-list'
+import PropTypes from 'prop-types'
 import './style.css'
 
 class Index extends PureComponent {
+  static propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    article: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      comments: PropTypes.arrayOf(PropTypes.object)
+    }).isRequired,
+    toggleOpen: PropTypes.func.isRequired
+  }
+
   state = {
     error: null
   }
